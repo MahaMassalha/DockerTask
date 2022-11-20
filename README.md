@@ -16,15 +16,15 @@ The Task is:
 3- Create a Jenkinsfile for CI/CD that creates and pushes the generated Web application
 Docker image to Docker Hub
 
-Running
-1. **Clone This Repository.**
-- git clone https://github.com/Dima-Nakhleh/Docker-Final-Task-BitCoin.git 
+***Running***
+1. **Clone This Repository:**
+git clone https://github.com/MahaMassalha/DockerTask
  
 2. **Go to the project directory:**
-- cd Docker-Final-Task-BitCoin
+cd DockerTask
 
 3. **Build The Project:**
-- docker-compose up -d
+docker-compose up -d
 
 4. **Run The Project:**
--  **You can then Call the API from you browser at : http://localhost:5000/**
+**You can then Call the API from you browser at : http://localhost:5000/**
