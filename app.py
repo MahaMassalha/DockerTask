@@ -11,13 +11,9 @@ SERVER_PORT = environ.get('SERVER_PORT')
 app = Flask(__name__)
 cache = redis.Redis(host=REDIS_HOST, port=int(REDIS_PORT))
 
-cryptoApiAvg = 'https://min-api.cryptocompare.com/data/v2/histominute?fsym=BTC&tsym=USD&limit=9'
-cryptoApiCurrentPrice = 'https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD'
-
-
 # return the current price of BTC
-def getCurPrice():
-    response = requestGet(cryptoApiCurrentPrice)
+def getCurrentPrice():
+    response = requestGet('https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD')
     price = response.json()['USD']
     cache.set('currentPrice', price)
     return price
@@ -25,7 +21,7 @@ def getCurPrice():
 
 # return the avaerage of the last 10 minutes of BTC price
 def getAvgPrice():
-    response = requestGet(cryptoApiAvg)
+    response = requestGet('https://min-api.cryptocompare.com/data/v2/histominute?fsym=BTC&tsym=USD&limit=9')
     candles = response.json()['Data']['Data']
 
     sum = 0
@@ -43,7 +39,7 @@ def getAvgPrice():
 def getBtcPrice():
     response = None
     try:
-        currentPrice = getCurrPrice()
+        currentPrice = getCurrentPrice()
         avgPrice = getAvgPrice()
         data = {'currentPrice': currentPrice, 'avgPrice': avgPrice}
         response = app.response_class(
