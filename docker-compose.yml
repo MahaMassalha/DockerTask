@@ -1,8 +1,10 @@
-version: "3.10"
+version: "3.9"
 services:
   web:
     build: .
+    env_file:
+      - .env
     ports:
-      - "8003:5000"
+      - "5000:5000"
   redis:
     image: "redis:alpine"
