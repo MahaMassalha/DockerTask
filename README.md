@@ -28,3 +28,6 @@ docker-compose up -d
 
 4. **Run The Project:**
 **You can then Call the API from you browser at : http://localhost:5000/**
+
+
+![image](https://user-images.githubusercontent.com/96788273/202923395-5e301e07-e053-4030-a416-6b861451a8d0.png)
