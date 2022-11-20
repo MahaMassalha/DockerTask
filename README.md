@@ -30,4 +30,12 @@ docker-compose up -d
 **You can then Call the API from you browser at : http://localhost:5000/**
 
 
-![image](https://user-images.githubusercontent.com/96788273/202923395-5e301e07-e053-4030-a416-6b861451a8d0.png)
+
+![image](https://user-images.githubusercontent.com/96788273/202923932-845c7900-773c-4f00-ab71-e474bcc2c211.png)
+
+
+***Jenkind pipeline & Docker Hub***
+
+![image](https://user-images.githubusercontent.com/96788273/202923823-0a909bb6-e040-4cf6-a5e2-6d88bea815d2.png)
+
+![image](https://user-images.githubusercontent.com/96788273/202923856-39d8564a-7a90-4b72-9167-c0e176a7ec96.png)
