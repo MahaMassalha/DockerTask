@@ -41,7 +41,7 @@ def getBtcPrice():
     try:
         currentPrice = getCurrentPrice()
         avgPrice = getAvgPrice()
-        data = {'currentPrice': currentPrice, 'avgPrice': avgPrice}
+        data = 'currtPrice': currentPrice, 'avgPrice': avgPrice
         response = app.response_class(
             response=jsonDumps(data),
             status=200,
