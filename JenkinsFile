@@ -1,0 +1,29 @@
+pipeline{
+    agent any
+	    stages {
+	        stage('Git Clone') {
+	            steps {
+	                git url:"https://github.com/MahaMassalha/DockerTask.git", branch:'master'
+	            }
+	        }
+	        stage('Build Docker') {
+	            steps {
+	                sh ' docker build -t bitcoin-price:$BUILD_NUMBER .'
+	            }
+	        }
+	        stage('Tag Docker') {
+	            steps {
+	               sh 'docker tag bitcoin-price:$BUILD_NUMBER MahaMassalha/bitcoin-price:$BUILD_NUMBER'
+	            }
+	        }
+	        stage('Push Docker') {
+	            steps {
+	                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'pass', usernameVariable: 'username')]) {
+	                    // the code here can access $pass and $user
+	                    sh 'docker login -u ${username} -p ${pass}'
+	                    sh 'docker push MahaMassalha/bitcoin-price:$BUILD_NUMBER'
+	                }
+	            }
+	        }
+	    }
+	}
